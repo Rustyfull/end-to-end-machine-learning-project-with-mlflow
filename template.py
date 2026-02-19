@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO,format="[%(asctime)s]: %(message)s")
 project_name = "mlproject"
 
 list_of_file = [
-    ".github/workflow/.gitkeep",
+    ".github/workflows/.gitkeep",
     f"src/{project_name}/__init__.py",
     f"src/{project_name}/components/__init__.py",
     f"src/{project_name}/utils/__init__.py",
@@ -27,28 +27,33 @@ list_of_file = [
     "app.py",
     "Dockerfile",
     "requirements.txt",
-    "setup.py",
     "research/trials.ipynb",
-    "templates/index.html"
+    "templates/index.html",
+    "pyproject.toml"
 
 
 ]
 
 
 
-for path in list_of_file:
-    path = Path(path)
-    file_dir, file_name = os.path.split(path)
+def create_structure():
+    for path in list_of_file:
+        path = Path(path)
+        file_dir, file_name = os.path.split(path)
 
-    if file_dir != "":
-        os.makedirs(file_dir,exist_ok=True)
-        logging.info(f"Creating directory: {file_dir} for the file: {file_name}")
+        if file_dir != "":
+            os.makedirs(file_dir,exist_ok=True)
+            logging.info(f"Creating directory: {file_dir} for the file: {file_name}")
 
 
-    if (not os.path.exists(path)) or (os.path.getsize(path) == 0):
-        with open(path,"w") as f:
-            pass
-        logging.info(f"Creating empty file: {path}")
+        if (not os.path.exists(path)) or (os.path.getsize(path) == 0):
+            with open(path,"w") as f:
+                pass
+            logging.info(f"Creating empty file: {path}")
 
-    else:
-        logging.info(f"{file_name} is already exist")
+        else:
+            logging.info(f"{file_name} is already exist")
+
+
+if __name__ == "__main__":
+    create_structure()
