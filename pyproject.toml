@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=64.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlproject"
+version = "0.0.1"
+description = "A small python package for ml app"
+readme = "README.md"
+authors = [{name = "Rustyfull", email = "kanarusty2002@gmail.com"}]
+requires-python = ">=3.11"
+
+dependencies = [
+    "pandas",
+    "mlflow>=2.15.0",
+    "notebook",
+    "numpy",
+    "scikit-learn",
+    "matplotlib",
+    "python-box>=7.0.0",
+    "pyyaml",
+    "tqdm",
+    "ensure>=1.0.4",
+    "joblib",
+    "types-pyyaml",
+    "Flask",
+    "Flask-Cors"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Rustyfull/end-to-end-machine-learning-project-with-mlflow"
+"Bug Tracker" = "https://github.com/Rustyfull/end-to-end-machine-learning-project-with-mlflow/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# 2026 Enterprise-Standard: Linter Konfiguration direkt hier drin
+[tool.ruff]
+line-length = 88
+target-version = "py311"
