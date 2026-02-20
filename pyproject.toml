@@ -24,7 +24,8 @@ dependencies = [
     "joblib",
     "types-pyyaml",
     "Flask",
-    "Flask-Cors"
+    "Flask-Cors",
+    "dagshub"
 ]
 
 [project.urls]
